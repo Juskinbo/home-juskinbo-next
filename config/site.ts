@@ -1,3 +1,5 @@
+import { title } from "process"
+
 export type SiteConfig = typeof siteConfig
 
 export const siteConfig = {
@@ -9,17 +11,26 @@ export const siteConfig = {
       href: "/",
     },
     {
-      title: "about",
+      title: "About",
       href: "/about",
     },
     {
-      title: "friends",
+      title: "Friends",
       href: "/friends",
     },
   ],
-  links: {
-    twitter: "https://twitter.com/shadcn",
-    github: "https://github.com/Juskinbo",
-    email: "mailto:juskinbo@outlook.com",
-  },
+  links: [
+    {
+      title: "gitHub",
+      href: "https://github.com/Juskinbo",
+    },
+    {
+      title: "twitter",
+      href: "https://x.com/Juskinbo0326",
+    },
+    {
+      title: "mail",
+      href: "mailto:juskinbo@outlook.com",
+    },
+  ],
 }

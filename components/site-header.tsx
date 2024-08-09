@@ -13,36 +13,27 @@ export function SiteHeader() {
         <MainNav items={siteConfig.mainNav} />
         <div className="flex flex-1 items-center justify-end space-x-4">
           <nav className="flex items-center space-x-1">
-            <Link
-              href={siteConfig.links.github}
-              target="_blank"
-              rel="noreferrer"
-            >
-              <div
-                className={buttonVariants({
-                  size: "icon",
-                  variant: "ghost",
-                })}
-              >
-                <Icons.gitHub className="size-5" />
-                <span className="sr-only">GitHub</span>
-              </div>
-            </Link>
-            <Link
-              href={siteConfig.links.twitter}
-              target="_blank"
-              rel="noreferrer"
-            >
-              <div
-                className={buttonVariants({
-                  size: "icon",
-                  variant: "ghost",
-                })}
-              >
-                <Icons.twitter className="size-5 fill-current" />
-                <span className="sr-only">Twitter</span>
-              </div>
-            </Link>
+            {siteConfig.links.map((link) => {
+              const Temp = Icons[link.title as keyof typeof Icons]
+              return (
+                <Link
+                  href={link.href}
+                  target="_blank"
+                  rel="noreferrer"
+                  key={link.title}
+                >
+                  <div
+                    className={buttonVariants({
+                      size: "icon",
+                      variant: "ghost",
+                    })}
+                  >
+                    <Temp className="size-5" />
+                    <span className="sr-only">{link.title}</span>
+                  </div>
+                </Link>
+              )
+            })}
             <ThemeToggle />
           </nav>
         </div>
